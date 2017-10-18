@@ -3,7 +3,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.hdlmx.mybatis.models.UserMapper">
-    <select id="GetUserByID" parameterType="int" resultType="User">
+    <select id="getUser" parameterType="int" resultType="cn.hdlmx.mybatis.models.User">
         select * from `user` where id = #{id}
     </select>
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO USER (name,dept,website,phone)
+         VALUES (#{name},#{dept},#{website},#{phone})
+    </insert>
+
+    <select id="getUserList" resultType="cn.hdlmx.mybatis.models.User">
+        SELECT * FROM USER
+    </select>
+    <update id="updateUser" parameterType="cn.hdlmx.mybatis.models.User">
+        UPDATE user SET name=#{name},dept=#{dept},website=#{website},phone={#phone}
+        WHERE  id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="cn.hdlmx.mybatis.models.User">
+        DELETE FROM user where id=#{id}
+    </delete>
 </mapper>

@@ -28,7 +28,7 @@ public class Main {
         SqlSession session = sqlSessionFactory.openSession();
         try {
             IUser iuser = session.getMapper(IUser.class);
-            User user = iuser.getUserByID(1);
+            User user = iuser.getUser(1);
             System.out.println("名字："+user.getName());
             System.out.println("所属部门："+user.getDept());
             System.out.println("主页："+user.getWebsite());
